@@ -1,21 +1,10 @@
-
 <a id="readme-top"></a>
-
-
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/rpglit/handsome-of-the-day/blob/325180614e157f4c13e064ce721e6c06aadf875f/Docs/bot.jpeg">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
