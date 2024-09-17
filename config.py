@@ -1,8 +1,10 @@
-BOT_TOKEN = '7001520031:AAGmqYw7FO9PfYoOSc6QJM2uKmamNkhGmdg'
-USER = "userdb"
-PASSWORD = "qweewq"
-HOST = "192.168.148.129"
-PORT = "5432"
-DATABASE = "botdb"
-CHAT_ID = -1002147253356  # чатерсы
-CHAT_TEST_ID = -1002206250318  # тест
+import os
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+USER = os.getenv("USER")
+PASSWORD = os.getenv("PASSWORD")
+HOST = os.getenv("HOST")
+PORT = os.getenv("PORT")
+DATABASE = os.getenv("DATABASE")
+CHAT_ID = os.getenv("CHAT_ID")  
+# -1002206250318 тест
+# -1002147253356 чатерсы
