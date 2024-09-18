@@ -35,7 +35,7 @@ services:
 
   bot:
     container_name: handsome-of-the-day-bot
-    image: bot
+    image: handsome-of-the-day-bot
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
       - USER=${USER}
