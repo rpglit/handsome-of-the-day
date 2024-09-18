@@ -3,6 +3,8 @@ services:
   postgres:
     container_name: handsome-of-the-day-postgres
     image: postgres:16
+    env_file:
+      - .env
     environment:
       -POSTGRES_DB=${POSTGRES_DB}
       -POSTGRES_USER=${POSTGRES_USER}
@@ -20,7 +22,8 @@ services:
   pgadmin:
     container_name: handsome-of-the-day-pgadmin
     image: dpage/pgadmin4:8.6
-    command:
+    env_file:
+      - .env
     environment:
       PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
@@ -36,6 +39,8 @@ services:
   bot:
     container_name: handsome-of-the-day-bot
     image: handsome-of-the-day-bot
+    env_file:
+      - .env
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
       - USER=${USER}
