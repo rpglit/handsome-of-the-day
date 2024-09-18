@@ -6,10 +6,10 @@ services:
     env_file:
       - .env
     environment:
-      -POSTGRES_DB=${POSTGRES_DB}
-      -POSTGRES_USER=${POSTGRES_USER}
-      -POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      -PGDATA=${PGDATA}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - PGDATA=${PGDATA}
     volumes:
       - ./Postgres/init.sql:/docker-entrypoint-initdb.d
       - botdb-data:/var/lib/postgresql/data
@@ -25,9 +25,9 @@ services:
     env_file:
       - .env
     environment:
-      -PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-      -PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
-      -PGADMIN_CONFIG_SERVER_MODE=${PGADMIN_CONFIG_SERVER_MODE}
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+      - PGADMIN_CONFIG_SERVER_MODE=${PGADMIN_CONFIG_SERVER_MODE}
     volumes:
       - pgadmin-data:/var/lib/pgadmin
     ports:
