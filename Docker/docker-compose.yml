@@ -1,1 +1,57 @@
+version: "3.9"
+services:
+  postgres:
+    container_name: test_postgres
+    image: postgres:16
+    environment:
+      POSTGRES_DB: "test"
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "qweewq"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./Postgres/init.sql:/docker-entrypoint-initdb.d
+      - botdb-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - postgres
 
+  pgadmin:
+    container_name: test_pgadmin
+    image: dpage/pgadmin4:8.6
+    command:
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "test@test.ru"
+      PGADMIN_DEFAULT_PASSWORD: "qweewq"
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    restart: unless-stopped
+    networks:
+      - postgres
+
+  bot:
+    container_name: test_bot
+    image: bot
+    environment:
+      BOT_TOKEN: '7001520031:AAGmqYw7FO9PfYoOSc6QJM2uKmamNkhGmdg'
+      USER: "test"
+      PASSWORD: "qweewq"
+      HOST: "192.168.148.129"
+      PORT: 5432
+      DATABASE: "test"
+      CHAT_ID: "-1002206250318"
+    volumes:
+      - bot-logs:/logs
+    restart: unless-stopped
+
+volumes:
+  botdb-data:
+  pgadmin-data:
+  bot-logs:
+networks:
+  postgres:
+    driver: bridge
