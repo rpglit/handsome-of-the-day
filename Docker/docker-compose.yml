@@ -1,12 +1,12 @@
 version: "3.9"
 services:
   postgres:
-    container_name: test_postgres
+    container_name: handsome-of-the-day-postgres
     image: postgres:16
     environment:
-      POSTGRES_DB: "test"
-      POSTGRES_USER: "test"
-      POSTGRES_PASSWORD: "qweewq"
+      -POSTGRES_DB=${POSTGRES_DB}
+      -POSTGRES_USER=${POSTGRES_USER}
+      -POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
       - ./Postgres/init.sql:/docker-entrypoint-initdb.d
@@ -18,13 +18,13 @@ services:
       - postgres
 
   pgadmin:
-    container_name: test_pgadmin
+    container_name: handsome-of-the-day-pgadmin
     image: dpage/pgadmin4:8.6
     command:
     environment:
-      PGADMIN_DEFAULT_EMAIL: "test@test.ru"
-      PGADMIN_DEFAULT_PASSWORD: "qweewq"
-      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_CONFIG_SERVER_MODE=${PGADMIN_CONFIG_SERVER_MODE}
     volumes:
       - pgadmin-data:/var/lib/pgadmin
     ports:
@@ -34,16 +34,16 @@ services:
       - postgres
 
   bot:
-    container_name: test_bot
+    container_name: handsome-of-the-day-bot
     image: bot
     environment:
-      BOT_TOKEN: '7001520031:AAGmqYw7FO9PfYoOSc6QJM2uKmamNkhGmdg'
-      USER: "test"
-      PASSWORD: "qweewq"
-      HOST: "192.168.148.129"
-      PORT: 5432
-      DATABASE: "test"
-      CHAT_ID: "-1002206250318"
+      - BOT_TOKEN=${BOT_TOKEN}
+      - USER=${USER}
+      - PASSWORD=${PASSWORD}
+      - HOST=${HOST}
+      - PORT=${PORT}
+      - DATABASE=${DATABASE}
+      - CHAT_ID=${CHAT_ID}
     volumes:
       - bot-logs:/logs
     restart: unless-stopped
