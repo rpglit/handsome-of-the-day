@@ -50,13 +50,12 @@ services:
       - DATABASE=${DATABASE}
       - CHAT_ID=${CHAT_ID}
     volumes:
-      - bot-logs:/logs
+      - ~/logs:/logs
     restart: unless-stopped
 
 volumes:
   botdb-data:
   pgadmin-data:
-  bot-logs:
 networks:
   postgres:
     driver: bridge
