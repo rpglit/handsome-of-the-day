@@ -43,12 +43,12 @@ services:
       - .env
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
-      - USER=${USER}
-      - PASSWORD=${PASSWORD}
-      - HOST=${HOST}
-      - PORT=${PORT}
-      - DATABASE=${DATABASE}
-      - CHAT_ID=${CHAT_ID}
+      - USER=${BOT_USER}
+      - PASSWORD=${BOT_PASSWORD}
+      - HOST=${BOT_HOST}
+      - PORT=${BOT_PORT}
+      - DATABASE=${BOT_DATABASE}
+      - CHAT_ID=${BOT_CHAT_ID}
     volumes:
       - /handsome-of-the-day/logs:/handsome-of-the-day/Bot/logs
     restart: unless-stopped
