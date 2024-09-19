@@ -11,7 +11,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - PGDATA=${PGDATA}
     volumes:
-      - ~/handsome-of-the-day/Postgres:/docker-entrypoint-initdb.d
+      - /handsome-of-the-day/Postgres:/docker-entrypoint-initdb.d
       - botdb-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
@@ -50,7 +50,7 @@ services:
       - DATABASE=${DATABASE}
       - CHAT_ID=${CHAT_ID}
     volumes:
-      - /bot_logs:/handsome-of-the-day/Bot/logs
+      - /handsome-of-the-day/logs:/handsome-of-the-day/Bot/logs
     restart: unless-stopped
     networks:
       - bot_network
