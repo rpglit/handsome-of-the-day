@@ -17,7 +17,7 @@ services:
       - "5432:5432"
     restart: unless-stopped
     networks:
-      - postgres
+      - bot_network
 
   pgadmin:
     container_name: handsome-of-the-day-pgadmin
@@ -34,7 +34,7 @@ services:
       - "5050:80"
     restart: unless-stopped
     networks:
-      - postgres
+      - bot_network
 
   bot:
     container_name: handsome-of-the-day-bot
@@ -53,11 +53,11 @@ services:
       - ~/logs:/logs
     restart: unless-stopped
     networks:
-      - postgres
+      - bot_network
 
 volumes:
   botdb-data:
   pgadmin-data:
 networks:
-  postgres:
+  bot_network:
     driver: bridge
