@@ -1,15 +1,28 @@
--- create-db.sql
+-- Проверка и создание базы данных
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT FROM pg_database WHERE datname = 'bot_database') THEN
+        PERFORM pg_create_database('bot_database');
+    END IF;
+END
+$$;
 
--- Создание базы данных
-CREATE DATABASE bot_database;
-
--- Создание пользователя
-CREATE USER bot_user WITH PASSWORD 'password';
+-- Проверка и создание пользователя
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'bot_user') THEN
+        CREATE USER bot_user WITH PASSWORD 'password';
+    END IF;
+END
+$$;
 
 -- Назначение привилегий
 GRANT ALL PRIVILEGES ON DATABASE bot_database TO bot_user;
 
+-- Подключение к базе данных
+\c bot_database
 
+-- Создание таблиц
 CREATE TABLE IF NOT EXISTS users (
     id VARCHAR(30) PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
