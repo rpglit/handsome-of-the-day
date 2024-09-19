@@ -7,6 +7,6 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS logs (
     date DATE PRIMARY KEY,
-    loser INT REFERENCES users(id),
-    nice INT REFERENCES users(id)
+    loser VARCHAR(30) REFERENCES users(id),
+    nice VARCHAR(30) REFERENCES users(id)
 );
