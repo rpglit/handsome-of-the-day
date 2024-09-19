@@ -103,7 +103,8 @@ async def run(bot, chat_id):
         loser_name = (db.db_request("SELECT name FROM users WHERE id='{}'".format(loser_id)))[0][0]
         db.db_request("UPDATE users SET losers = losers + 1 WHERE id='{}' RETURNING *".format(loser_id))
         db.db_request("UPDATE users SET nices = nices + 1 WHERE id='{}' RETURNING *".format(nice_id))
-        await bot.send_dice(chat_id, '🎰')
+        #await bot.send_dice(chat_id, '🎰')
+        await bot.send_dice(chat_id, emoji='🎰')
         await bot.send_message(chat_id, "🌈 НАЧНЕМ ПОИСКИ С ЛУЗЕРА ДНЯ 🌈")
         sleep(3)
         await bot.send_message(chat_id, choice(finding_loser_list))
