@@ -1,9 +1,9 @@
 import os
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-USER = os.getenv("USER")
-PASSWORD = os.getenv("PASSWORD")
-HOST = os.getenv("HOST")
-PORT = os.getenv("PORT")
-DATABASE = os.getenv("DATABASE")
-CHAT_ID = os.getenv("CHAT_ID")
+USER = os.getenv("BOT_USER")
+PASSWORD = os.getenv("BOT_PASSWORD")
+HOST = os.getenv("BOT_HOST")
+PORT = os.getenv("BOT_PORT")
+DATABASE = os.getenv("BOT_DATABASE")
+CHAT_ID = os.getenv("BOT_CHAT_ID")
