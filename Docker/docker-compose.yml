@@ -50,7 +50,7 @@ services:
       - DATABASE=${DATABASE}
       - CHAT_ID=${CHAT_ID}
     volumes:
-      - ~/logs:/logs
+      - /logs:/logs
     restart: unless-stopped
     networks:
       - bot_network
