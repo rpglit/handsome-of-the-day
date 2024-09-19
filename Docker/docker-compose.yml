@@ -11,7 +11,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - PGDATA=${PGDATA}
     volumes:
-      - ./handsome-of-the-day/Postgres/init.sql:/docker-entrypoint-initdb.d
+      - ./handsome-of-the-day/Postgres:/docker-entrypoint-initdb.d
       - botdb-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
