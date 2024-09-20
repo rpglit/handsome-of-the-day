@@ -104,7 +104,7 @@ async def run(bot, chat_id):
         db.db_request("UPDATE users SET losers = losers + 1 WHERE id='{}' RETURNING *".format(loser_id))
         db.db_request("UPDATE users SET nices = nices + 1 WHERE id='{}' RETURNING *".format(nice_id))
         #await bot.send_dice(chat_id, '🎰')
-        await bot.send_dice(chat_id, emoji='🎰')
+        await bot.send_sticker(chat_id, 'CAACAgIAAxkBAAEM1fZm7WpMpXi8l0GfxlC8H73167uDbgACw0MAAuM34Uhcw6sgtc9enzYE')
         await bot.send_message(chat_id, "🌈 НАЧНЕМ ПОИСКИ С ЛУЗЕРА ДНЯ 🌈")
         sleep(3)
         await bot.send_message(chat_id, choice(finding_loser_list))
@@ -140,3 +140,4 @@ async def message_handler(msg: Message):
 @router.message(F.text.lower() == 'увы')
 async def message_handler(msg: Message):
     await msg.answer_sticker('CAACAgIAAxkBAAEMqwVmwdb4EjjRMe1d9XbHRcZwMmdWtAACqyIAAhfmkEhTcU-1XtA3hTUE')
+    
